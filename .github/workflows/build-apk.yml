@@ -12,20 +12,16 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      
-      - name: Create React Native Project
+      - name: Build
         run: |
           npx react-native@0.73.6 init FixerApp --version 0.73.6
           cp App.tsx FixerApp/App.tsx
-          cp FixerApp/App.tsx ./App.tsx.bak || true
-      
-      - name: Build APK Inside New Project
-        run: |
-          cd FixerApp/android
+          cd FixerApp
+          npm install
+          cd android
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon
-
-      - name: Upload APK
+          ./gradlew assembleRelease
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: Whatsapp-Fixer-APK
