@@ -1,0 +1,7 @@
+{
+  "name": "WhatsAppFixerV23",
+  "version": "23.0.0",
+  "private": true,
+  "scripts": { "android": "react-native run-android" },
+  "dependencies": { "react-native": "0.73.0", "react-native-fs": "^2.20.0" }
+}
